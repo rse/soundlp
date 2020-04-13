@@ -1,7 +1,7 @@
 {
     "name":                             "@rse/soundlp",
     "publishConfig":                    { "access": "public" },
-    "version":                          "0.9.5",
+    "version":                          "0.9.0",
     "description":                      "Sound Loop Collection",
     "keywords":                         [ "sound", "loop" ],
     "browser":                          "./soundlp.browser.js",
