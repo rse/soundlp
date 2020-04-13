@@ -1,0 +1,60 @@
+{
+    "name":                             "@rse/soundlp",
+    "publishConfig":                    { "access": "public" },
+    "version":                          "0.9.5",
+    "description":                      "Sound Loop Collection",
+    "keywords":                         [ "sound", "loop" ],
+    "browser":                          "./soundlp.browser.js",
+    "main":                             "./soundlp.js",
+    "license":                          "MIT",
+    "repository": {
+        "type":                         "git",
+        "url":                          "https://github.com/rse/soundlp.git"
+    },
+    "author": {
+        "name":                         "Dr. Ralf S. Engelschall",
+        "email":                        "rse@engelschall.com",
+        "url":                          "http://engelschall.com"
+    },
+    "homepage":                         "https://github.com/rse/soundlp",
+    "bugs":                             "https://github.com/rse/soundlp/issues",
+    "devDependencies": {
+        "rollup":                       "2.6.0",
+        "@rollup/plugin-commonjs":      "11.1.0",
+        "@rollup/plugin-replace":       "2.3.1",
+        "@rollup/plugin-node-resolve":  "7.1.2",
+        "@rollup/plugin-json":          "4.0.2",
+        "rollup-plugin-terser":         "5.3.0",
+        "rollup-plugin-babel":          "4.4.0",
+        "@babel/core":                  "7.9.0",
+        "@babel/preset-env":            "7.9.5",
+        "npm-run-all":                  "4.1.5",
+        "shx":                          "0.3.2",
+        "glob":                         "7.1.6",
+        "audiosprite":                  "0.7.2"
+    },
+    "dependencies": {
+        "npm-install-fetch":            "1.0.9"
+    },
+    "engines": {
+        "node":                         ">=10.0.0"
+    },
+    "scripts": {
+        "build":                        "npm-run-all -s build:audiosprite build:attribution build:rollup",
+        "build:audiosprite":            "audiosprite --format howler2 --export mp3 --output soundlp.data-sprite --gap 1 --bitrate 128 --channels 1 soundlp.d/*.mp3",
+        "build:attribution":            "node soundlp.data-attrib.js",
+        "build:rollup":                 "rollup -c",
+        "clean":                        "shx rm -f soundlp.browser.js",
+        "distclean":                    "shx rm -rf node_modules",
+        "install":                      "npm-install-fetch",
+        "uninstall":                    "shx rm -rf soundlp.data-sprite.mp3 soundlp.d"
+    },
+    "npm-install-fetch": {
+        "name":                         "%{description} %{version}",
+        "input":                        "https://github.com/rse/soundlp/archive/%{version}.tar.gz",
+        "extract":                      true,
+        "strip":                        1,
+        "filter":                       [ "soundlp.data-sprite.mp3", "soundlp.d/**" ],
+        "output":                       "."
+    }
+}
