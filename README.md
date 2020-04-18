@@ -5,7 +5,7 @@ SoundLP
 Sound Loop Collection
 
 <p/>
-<img src="https://nodei.co/npm/soundlp.png?downloads=true&stars=true" alt=""/>
+<img src="https://nodei.co/npm/@rse/soundlp.png?downloads=true&stars=true" alt=""/>
 
 <p/>
 <img src="https://david-dm.org/rse/soundlp.png" alt=""/>
